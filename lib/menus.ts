@@ -54,25 +54,22 @@ export function getMenuList(pathname: string): Group[] {
           label: 'Strategies',
           active: pathname.includes('/strategies'),
           icon: 'heroicons-outline:puzzle',
-          submenus: [],
-        },
-      ],
-    },
-  ];
-}
-export function getHorizontalMenuList(pathname: string): Group[] {
-  return [
-    {
-      groupLabel: 'Dashboard',
-      id: 'dashboard',
-      menus: [
-        {
-          id: 'dashboard',
-          href: '/dashboard',
-          label: 'Dashboard',
-          active: pathname.includes('/dashboard'),
-          icon: 'heroicons-outline:home',
-          submenus: [],
+          submenus: [
+            {
+              href: '/dashboard/strategies/my-strategies',
+              label: 'My Strategies',
+              active: pathname === '/dashboard/strategies/my-strategies',
+              icon: 'heroicons:',
+              children: [],
+            },
+            {
+              href: '/dashboard/strategies/strategy-builder',
+              label: 'Create Strategy',
+              active: pathname === '/dashboard/strategies/strategy-builder',
+              icon: 'heroicons:',
+              children: [],
+            },
+          ],
         },
       ],
     },

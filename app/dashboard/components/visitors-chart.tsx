@@ -4,6 +4,7 @@ const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 import { colors } from '@/lib/colors';
 import { useTheme } from 'next-themes';
 import { getLabel, getYAxisConfig } from '@/lib/appex-chart-options';
+import { ApexOptions } from 'apexcharts';
 
 const VisitorsChart = ({ height = 350 }) => {
   const { theme: mode } = useTheme();
@@ -86,7 +87,7 @@ const VisitorsChart = ({ height = 350 }) => {
       left: 0,
     },
   };
-  return <Chart options={options} series={series} type='radar' height={height} width={'100%'} />;
+  return <Chart options={options as ApexOptions} series={series} type='radar' height={height} width={'100%'} />;
 };
 
 export default VisitorsChart;

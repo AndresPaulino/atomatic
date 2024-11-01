@@ -4,6 +4,7 @@ const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 import { useTheme } from 'next-themes';
 import { getGridConfig, getXAxisConfig, getYAxisConfig } from '@/lib/appex-chart-options';
 import { colors } from '@/lib/colors';
+import { ApexOptions } from 'apexcharts';
 
 interface VisitorsReportChartProps {
   height?: number;
@@ -56,7 +57,7 @@ const VisitorsReportChart = ({
       left: 0,
     },
   };
-  return <Chart options={options} series={series} type='area' height={height} width={'100%'} />;
+  return <Chart options={options as ApexOptions} series={series} type='area' height={height} width={'100%'} />;
 };
 
 export default VisitorsReportChart;

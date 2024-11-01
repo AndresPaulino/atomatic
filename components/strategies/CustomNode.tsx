@@ -99,7 +99,7 @@ const CustomNode = ({ data, isConnectable }: NodeProps) => {
         type='target'
         position={Position.Top}
         isConnectable={isConnectable}
-        className={`w-3 h-3 ${type === 'asset' ? 'hidden' : ''}`}
+        className={`w-16 h-16 ${type === 'asset' ? 'hidden' : ''}`}
       />
       <div className='flex items-center justify-between mb-2'>
         <div className='flex items-center'>
@@ -126,7 +126,14 @@ const CustomNode = ({ data, isConnectable }: NodeProps) => {
           )}
         </div>
       ))}
-      {type !== 'exit' && <Handle type='source' position={Position.Bottom} isConnectable={isConnectable} className='w-3 h-3' />}
+      {type !== 'exit' && (
+        <Handle 
+          type='source' 
+          position={Position.Bottom} 
+          isConnectable={isConnectable}
+          className='w-16 h-16'
+        />
+      )}
     </div>
   );
 };
