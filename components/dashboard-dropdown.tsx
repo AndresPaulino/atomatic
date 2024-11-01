@@ -14,13 +14,13 @@ const DashboardDropdown = () => {
       </DropdownMenuTrigger>
       <DropdownMenuContent align='end' className='w-[140px] p-0'>
         <DropdownMenuItem className='py-2 rounded-none border-b border-default-200  text-default-900 focus:bg-default-400 focus:text-default-100 dark:focus:text-default-900'>
-          {'last_28_days'}
+          Last 28 Days
         </DropdownMenuItem>
         <DropdownMenuItem className='py-2 rounded-none border-b border-default-200  text-default-900 focus:bg-default-400 focus:text-default-100 dark:focus:text-default-900'>
-          {'last_months'}
+          Last Month
         </DropdownMenuItem>
         <DropdownMenuItem className='py-2 rounded-none  text-default-900 focus:bg-default-400 focus:text-default-100 dark:focus:text-default-900'>
-          {'last_year'}
+          Last Year
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

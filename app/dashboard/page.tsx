@@ -58,7 +58,7 @@ const EcommercePage = () => {
       </div>
       <div className='grid grid-cols-12 gap-5'>
         <div className='col-span-12 lg:col-span-4'>
-          <Card>
+          <Card className='h-full'>
             <CardHeader className='flex flex-row items-center gap-1'>
               <CardTitle className='flex-1'>Statistics</CardTitle>
               <DashboardDropdown />
@@ -96,14 +96,14 @@ const EcommercePage = () => {
           </Card>
         </div>
         <div className='col-span-12 lg:col-span-8'>
-          <Card>
-            <CardContent className='pt-5'>
+          <Card className='h-full'>
+            <CardContent className='pt-5 h-full'>
               <RevinueBarChart height={420} />
             </CardContent>
           </Card>
         </div>
       </div>
-      <div className='grid lg:grid-cols-2 grid-cols-1 gap-5'>
+      <div className='grid lg:grid-cols-1 grid-cols-1 gap-5'>
         <Card>
           <CardHeader className='flex flex-row items-center gap-1'>
             <CardTitle className='flex-1'>Recent Order</CardTitle>

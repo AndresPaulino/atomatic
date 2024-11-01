@@ -1,6 +1,7 @@
 'use client';
 
 import { useConfig } from '@/hooks/use-config';
+import { ApexOptions } from 'apexcharts';
 import { useTheme } from 'next-themes';
 import dynamic from 'next/dynamic';
 const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
@@ -149,7 +150,15 @@ const RevenueBarChart = ({
       },
     ],
   };
-  return <Chart options={options} series={series} type={chartType} height={height} width={'100%'} />;
+  return (
+    <Chart
+      options={options as ApexOptions}
+      series={series as ApexAxisChartSeries}
+      type={chartType}
+      height={height}
+      width={'100%'}
+    />
+  );
 };
 
 export default RevenueBarChart;
