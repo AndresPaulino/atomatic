@@ -53,6 +53,7 @@
     "next-themes": "^0.3.0",
     "react": "19.0.0-rc-02c0e824-20241028",
     "react-dom": "19.0.0-rc-02c0e824-20241028",
+    "react-flow-renderer": "^10.3.17",
     "react-hook-form": "^7.53.1",
     "sonner": "^1.5.0",
     "tailwind-merge": "^2.5.4",
