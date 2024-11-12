@@ -1,3 +1,4 @@
+'use client';
 import { StatusBlock } from '@/components/blocks/status-block';
 import { WelcomeBlock } from '@/components/blocks/welcome-block';
 import { Box, ShoppingCart, TrendingUp } from 'lucide-react';
@@ -7,14 +8,14 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import DashboardDropdown from '@/components/dashboard-dropdown';
 import OrdersBlock from '@/components/blocks/orders-block';
 import EarningBlock from '@/components/blocks/earning-block';
-import Customer from './components/customer';
 import RecentOrderTable from './components/recent-order-table';
-import VisitorsReportChart from './components/visitors-report';
-import VisitorsChart from './components/visitors-chart';
-import { products } from './components/data';
-import Product from './components/product';
+import { useSession } from 'next-auth/react';
+const Dashboard = () => {
+  const { data: session, status } = useSession();
 
-const EcommercePage = () => {
+  if (status === 'loading') {
+    return <div>Loading...</div>;
+  }
   return (
     <div className='space-y-5'>
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5'>
@@ -22,7 +23,7 @@ const EcommercePage = () => {
           <div className='max-w-[180px] relative z-10'>
             <h4 className='text-xl font-medium text-primary-foreground dark:text-default-900 mb-2'>
               <span className='block font-normal'> Welcome</span>
-              <span className='block'>Mr. Dianne Russell</span>
+              <span className='block'>{session?.user?.name}</span>
             </h4>
           </div>
           <Image
@@ -119,4 +120,4 @@ const EcommercePage = () => {
   );
 };
 
-export default EcommercePage;
+export default Dashboard;

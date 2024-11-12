@@ -1,16 +1,20 @@
-import { auth } from "@/lib/auth"
- 
+// middleware.ts
+import { auth } from '@/auth';
+
 export default auth((req) => {
-  const publicRoutes = ['/auth/login', '/auth/register'];
-  const isPublicRoute = publicRoutes.includes(req.nextUrl.pathname);
-  
-  if (isPublicRoute) {
-    return;
+  const isLoggedIn = !!req.auth;
+  const isOnDashboard = req.nextUrl.pathname.startsWith('/dashboard');
+  const isOnAuth = req.nextUrl.pathname.startsWith('/auth');
+
+  if (isOnDashboard && !isLoggedIn) {
+    return Response.redirect(new URL('/auth/login', req.nextUrl));
   }
-  
-  return;
-})
- 
+
+  if (isOnAuth && isLoggedIn) {
+    return Response.redirect(new URL('/dashboard', req.nextUrl));
+  }
+});
+
 export const config = {
-  matcher: ['/((?!.+\\.[\\w]+$|_next).*)', '/', '/(api|trpc)(.*)'],
-}
+  matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)'],
+};
