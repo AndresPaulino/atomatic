@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 'use client';
 
 import * as React from 'react';
@@ -28,10 +29,8 @@ import {
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useConfig } from '@/hooks/use-config';
-import { useMediaQuery } from '@/hooks/use-media-query';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useMenuHoverConfig } from '@/hooks/use-menu-hover';
 
 const groups = [
@@ -61,15 +60,6 @@ const groups = [
 
 type Team = (typeof groups)[number]['teams'][number];
 
-type PopoverTriggerProps = React.ComponentPropsWithoutRef<typeof PopoverTrigger>;
-
-interface TeamSwitcherProps extends PopoverTriggerProps {}
-
-const scaleVariants = {
-  collapsed: { scale: 0.8 },
-  expanded: { scale: 1 },
-};
-
 export default function TeamSwitcher() {
   const [config] = useConfig();
   const [hoverConfig] = useMenuHoverConfig();
@@ -78,7 +68,6 @@ export default function TeamSwitcher() {
   const [open, setOpen] = React.useState(false);
   const [showNewTeamDialog, setShowNewTeamDialog] = React.useState(false);
   const [selectedTeam, setSelectedTeam] = React.useState<Team>(groups[0].teams[0]);
-  const isDesktop = useMediaQuery('(min-width: 1280px)');
   if (config.showSwitcher === false || config.sidebar === 'compact') return null;
 
   return (
